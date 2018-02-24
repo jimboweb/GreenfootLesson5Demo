@@ -31,8 +31,12 @@ public class Car extends Actor
            setRotation(-90);
            move(speed);
        }
-       removeTouching(Pizza.class);
-       
+       Actor pizza = getOneIntersectingObject(Pizza.class);
+       MyWorld myWorld = (MyWorld)getWorld();
+       if(pizza!=null){
+           myWorld.removeObject(pizza);
+           myWorld.increaseScore();
+       }
     }    
     
 }
